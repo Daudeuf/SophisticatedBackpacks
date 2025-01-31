@@ -32,9 +32,10 @@ repositories {
         }
     }
     maven { url "https://maven.blamejared.com/" }
+    maven { url "https://maven.minecraftforge.net/" }
     maven {
         name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/p3pp3rf1y/sophisticatedcore")
+        url = uri("https://maven.pkg.github.com/daudeuf/sophisticatedcore")
         credentials {
             username = System.getenv("USERNAME")
             password = System.getenv("READ_PACKAGES_TOKEN")
@@ -61,7 +62,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             property "mixin.env.disableRefMap", "true"
-            //property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -93,7 +94,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${neo_version}"
 
     if (findProject(':SophisticatedCore') != null) {
         implementation project(':SophisticatedCore')
